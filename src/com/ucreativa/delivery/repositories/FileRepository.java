@@ -7,21 +7,23 @@ import java.util.List;
 
 public class FileRepository implements Repository{
 
+    private final String FILE_PATH = "db.txt";
+
     @Override
     public void guardarProducto(Producto producto, String tipo) {
 
         String text;
 
-        if(tipo.equals("express")){
+        if(tipo.equals("E")){
             text = "-----Informacion de la orden #" + producto.getId() + "-----" + "\n"
                     + "Restaurante: " + producto.getNombreRestaurante() + "\n"
                     + "Producto: " + producto.getNombreProducto() + "\n"
                     + "Cliente: " + producto.getNombreCliente() + "\n"
                     + "Precio producto: " + producto.getPrecio() + "\n"
-                    + "Tipo de envio: " + producto.getTipoEnvio() + "\n"
-                    + "Direccion de envio: " + producto.getDireccionEnvio() + "\n"
-                    + "Costo de envio: " + producto.getCostoEnvio() + "\n"
-                    + "Tiempo estimado de envio: " + producto.getTiempoEnvio() + " minutos" + "\n";
+                    + "Tipo de envio: " + producto.getTipoEnvio() + "\n";
+                 //   + "Direccion de envio: " + producto.getDireccionEnvio() + "\n"
+                 //   + "Costo de envio: " + producto.getCostoEnvio() + "\n"
+                 //   + "Tiempo estimado de envio: " + producto.getTiempoEnvio() + " minutos" + "\n";
         }else{
 
             text = "-----Informacion de la orden #" + producto.getId() + "-----" + "\n"

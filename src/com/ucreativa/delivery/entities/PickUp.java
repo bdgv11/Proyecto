@@ -6,14 +6,15 @@ public class PickUp extends Producto{
     private boolean pedidoOnline;
     private boolean pedidoLlamada;
 
-    public PickUp(int id, String nombreProducto, String nombreRestaurante, double precio, String tipoEnvio, String nombreCliente,
-                  String telefonoCliente, boolean pagoTarjeta, boolean pagoEfectivo, int horaEntrega, boolean pedidoOnline, boolean pedidoLlamada) {
-        super(id, nombreProducto, nombreRestaurante, precio, tipoEnvio, nombreCliente, telefonoCliente, pagoTarjeta, pagoEfectivo);
+    public PickUp(int id, String nombreProducto, String nombreRestaurante, double precio, String tipoEnvio, String nombreCliente, String telefonoCliente, String metodoPago,
+                  int horaEntrega, boolean pedidoLlamada, boolean pedidoOnline) {
+        super(id, nombreProducto, nombreRestaurante, precio, tipoEnvio, nombreCliente, telefonoCliente, metodoPago);
 
         this.horaEntrega = horaEntrega;
         this.pedidoOnline = pedidoOnline;
         this.pedidoLlamada = pedidoLlamada;
     }
+
 
     public int getHoraEntrega() {
         return horaEntrega;

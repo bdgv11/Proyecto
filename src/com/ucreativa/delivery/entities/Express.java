@@ -6,9 +6,9 @@ public class Express extends Producto{
     private double costoEnvio;
     private int tiempoEnvio;
 
-    public Express(int id, String nombreProducto, String nombreRestaurante, double precio, String tipoEnvio, String nombreCliente,
-                   String telefonoCliente, boolean pagoTarjeta, boolean pagoEfectivo, String direccionEnvio, double costoEnvio, int tiempoEnvio) {
-        super(id, nombreProducto, nombreRestaurante, precio, tipoEnvio, nombreCliente, telefonoCliente, pagoTarjeta, pagoEfectivo);
+    public Express(int id, String nombreProducto, String nombreRestaurante, double precio, String tipoEnvio, String nombreCliente, String telefonoCliente, String metodoPago,
+                   String direccionEnvio, double costoEnvio, int tiempoEnvio) {
+        super(id, nombreProducto, nombreRestaurante, precio, tipoEnvio, nombreCliente, telefonoCliente, metodoPago);
 
         this.direccionEnvio = direccionEnvio;
         this.costoEnvio = costoEnvio;
@@ -38,6 +38,8 @@ public class Express extends Producto{
     public void setTiempoEnvio(int tiempoEnvio) {
         this.tiempoEnvio = tiempoEnvio;
     }
+
+
 
     @Override
     public void infoOrden() {

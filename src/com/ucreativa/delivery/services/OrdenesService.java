@@ -15,22 +15,20 @@ public class OrdenesService {
 
     public void guardarProducto(int id, String nombreProducto, String nombreRestaurante, double precio,
                                 String tipoEnvio, String nombreCliente, String telefonoCliente,
-                                boolean pagoTarjeta, boolean pagoEfectivo, String direccionEnvio, double costoEnvio, int tiempoEnvio,
+                                String metodoPago, String direccionEnvio, double costoEnvio, int tiempoEnvio,
                                 int horaEntrega, boolean pedidoOnline, boolean pedidoLlamada){
 
         Producto producto;
         String tipo;
 
-        if(tipoEnvio.equals("Express")){
-            producto = new Express(id,nombreProducto, nombreRestaurante, precio,
-                    tipoEnvio, nombreCliente, telefonoCliente, pagoTarjeta,
-                    pagoEfectivo, direccionEnvio, costoEnvio, tiempoEnvio);
-            tipo = "express";
+        if(tipoEnvio.equals("E")){
+            producto = new Express(id, nombreProducto, nombreRestaurante, precio, tipoEnvio, nombreCliente,
+                    telefonoCliente, metodoPago, direccionEnvio, costoEnvio, tiempoEnvio);
+            tipo = "E";
         }else{
-            producto = new PickUp(id,nombreProducto, nombreRestaurante, precio,
-                    tipoEnvio, nombreCliente, telefonoCliente, pagoTarjeta,
-                    pagoEfectivo, horaEntrega, pedidoOnline, pedidoLlamada);
-            tipo = "pickup";
+            producto = new PickUp(id, nombreProducto, nombreRestaurante, precio, tipoEnvio, nombreCliente,
+                    telefonoCliente,metodoPago, horaEntrega, pedidoLlamada, pedidoOnline);
+            tipo = "P";
         }
 
         this.repository.guardarProducto(producto,tipo);

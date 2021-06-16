@@ -1,5 +1,7 @@
 package com.ucreativa.delivery.entities;
 
+
+// Esta es una clase abstracta, no 100% pero es abstracta por lo que las clases Express y PickUp
 public abstract class Producto {
 
     private int id;
@@ -9,12 +11,10 @@ public abstract class Producto {
     private String tipoEnvio;
     private String nombreCliente;
     private String telefonoCliente;
-    private boolean pagoTarjeta;
-    private boolean pagoEfectivo;
+    private String metodoPago;
 
     public Producto(int id, String nombreProducto, String nombreRestaurante, double precio,
-                    String tipoEnvio, String nombreCliente, String telefonoCliente,
-                    boolean pagoTarjeta, boolean pagoEfectivo){
+                    String tipoEnvio, String nombreCliente, String telefonoCliente, String metodoPago){
 
         this.id = id;
         this.nombreProducto = nombreProducto;
@@ -23,8 +23,7 @@ public abstract class Producto {
         this.tipoEnvio = tipoEnvio;
         this.nombreCliente = nombreCliente;
         this.telefonoCliente = telefonoCliente;
-        this.pagoTarjeta = pagoTarjeta;
-        this.pagoEfectivo = pagoEfectivo;
+        this.metodoPago = metodoPago;
     }
 
     public int getId() {
@@ -83,20 +82,13 @@ public abstract class Producto {
         this.telefonoCliente = telefonoCliente;
     }
 
-    public boolean isPagoTarjeta() {
-        return pagoTarjeta;
+
+    public String getMetodoPago() {
+        return metodoPago;
     }
 
-    public void setPagoTarjeta(boolean pagoTarjeta) {
-        this.pagoTarjeta = pagoTarjeta;
-    }
-
-    public boolean isPagoEfectivo() {
-        return pagoEfectivo;
-    }
-
-    public void setPagoEfectivo(boolean pagoEfectivo) {
-        this.pagoEfectivo = pagoEfectivo;
+    public void setMetodoPago(String metodoPago) {
+        this.metodoPago = metodoPago;
     }
 
     public abstract void infoOrden();
