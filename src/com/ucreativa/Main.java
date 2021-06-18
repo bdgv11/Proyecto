@@ -12,7 +12,6 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
 
         Producto producto;
         OrdenesService service = new OrdenesService(new FileRepository());
@@ -93,12 +92,13 @@ public class Main {
 
             repo.guardarProducto(producto, tipo);
 
-            System.out.println("Desea imprimir la lista (S)");
+            System.out.println("Desea imprimir la lista (S/N)");
             String print = scan.nextLine();
 
             if (print.equals("S")) {
 
-                //
+
+
             }else{
                 System.out.println("Gracias por utilizar el sistema...");
                 bandera = false;

@@ -1,4 +1,6 @@
 package com.ucreativa.delivery.repositories;
+import com.ucreativa.delivery.entities.Express;
+import com.ucreativa.delivery.entities.PickUp;
 import com.ucreativa.delivery.entities.Producto;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -12,27 +14,50 @@ public class FileRepository implements Repository{
     @Override
     public void guardarProducto(Producto producto, String tipo) {
 
-        String text;
+        String text, tipoEnvio;
+
+        if(producto.getTipoEnvio().equals("E")){
+            tipoEnvio = "Express";
+        }else{
+            tipoEnvio = "PickUp";
+        }
 
         if(tipo.equals("E")){
-            text = "-----Informacion de la orden #" + producto.getId() + "-----" + "\n"
-                    + "Restaurante: " + producto.getNombreRestaurante() + "\n"
-                    + "Producto: " + producto.getNombreProducto() + "\n"
-                    + "Cliente: " + producto.getNombreCliente() + "\n"
-                    + "Precio producto: " + producto.getPrecio() + "\n"
-                    + "Tipo de envio: " + producto.getTipoEnvio() + "\n"
+
+            Express express = (Express)producto;
+
+            text = "\n" + "-----Informacion de la orden #" + express.getId() + "-----" + "\n"
+                    + "\n"
+                    + "Restaurante: " + express.getNombreRestaurante() + "\n"
+                    + "Producto: " + express.getNombreProducto() + "\n"
+                    + "Cliente: " + express.getNombreCliente() + "\n"
+                    + "Precio producto: " + express.getPrecio() + "\n"
+                    + "Tipo de envio: " + tipoEnvio + "\n"
+                    + "Direccion de envio: " + express.getDireccionEnvio() + "\n"
+                    + "Costo de envio: " + express.getCostoEnvio() + "\n"
+                    + "Tiempo estimado de envio: " + express.getTiempoEnvio() + " minutos"
                     + "\n";
-                 //   + "Direccion de envio: " + producto.getDireccionEnvio() + "\n"
-                 //   + "Costo de envio: " + producto.getCostoEnvio() + "\n"
-                 //   + "Tiempo estimado de envio: " + producto.getTiempoEnvio() + " minutos" + "\n";
         }else{
 
-            text = "-----Informacion de la orden #" + producto.getId() + "-----" + "\n"
-                    + "Restaurante: " + producto.getNombreRestaurante() + "\n"
-                    + "Producto: " + producto.getNombreProducto() + "\n"
-                    + "Cliente: " + producto.getNombreCliente() + "\n"
-                    + "Precio producto: " + producto.getPrecio() + "\n"
-                    + "Tipo de envio: " + producto.getTipoEnvio() + "\n"
+            PickUp pick = (PickUp)producto;
+
+            String metodoPedido;
+
+            if(pick.isPedidoOnline()){
+                metodoPedido = "Online";
+            }else{
+                metodoPedido = "Llamada";
+            }
+
+            text =  "\n" + "-----Informacion de la orden #" + pick.getId() + "-----" + "\n"
+                    + "\n"
+                    + "Restaurante: " + pick.getNombreRestaurante() + "\n"
+                    + "Producto: " + pick.getNombreProducto() + "\n"
+                    + "Cliente: " + pick.getNombreCliente() + "\n"
+                    + "Precio producto: " + pick.getPrecio() + "\n"
+                    + "Tipo de envio: " + tipoEnvio + "\n"
+                    + "Minutos estimados para la entrega: " + pick.getHoraEntrega() + "\n"
+                    + "Metodo utilizado para pedido: " + metodoPedido + "\n"
                     + "\n";
         }
         try {
