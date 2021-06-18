@@ -20,7 +20,8 @@ public class FileRepository implements Repository{
                     + "Producto: " + producto.getNombreProducto() + "\n"
                     + "Cliente: " + producto.getNombreCliente() + "\n"
                     + "Precio producto: " + producto.getPrecio() + "\n"
-                    + "Tipo de envio: " + producto.getTipoEnvio() + "\n";
+                    + "Tipo de envio: " + producto.getTipoEnvio() + "\n"
+                    + "\n";
                  //   + "Direccion de envio: " + producto.getDireccionEnvio() + "\n"
                  //   + "Costo de envio: " + producto.getCostoEnvio() + "\n"
                  //   + "Tiempo estimado de envio: " + producto.getTiempoEnvio() + " minutos" + "\n";
@@ -31,7 +32,8 @@ public class FileRepository implements Repository{
                     + "Producto: " + producto.getNombreProducto() + "\n"
                     + "Cliente: " + producto.getNombreCliente() + "\n"
                     + "Precio producto: " + producto.getPrecio() + "\n"
-                    + "Tipo de envio: " + producto.getTipoEnvio() + "\n";
+                    + "Tipo de envio: " + producto.getTipoEnvio() + "\n"
+                    + "\n";
         }
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter("bd.txt",true));
