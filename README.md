@@ -10,8 +10,9 @@
 
 ## About The Project
 This project is about the OOP course using JAVA.
+Looks something like this, once you've done everything.
 
-![Screenshot](tfgtec.png)
+![Screenshot](project.png)
 
 ## Built With
 This project is created with:

@@ -31,7 +31,7 @@ public class Main {
         while(bandera){
 
             System.out.println("");
-            System.out.println("--Digite la siguiente informacion--");
+            System.out.println("--Digite la siguiente información--");
             System.out.println("");
 
             System.out.println("Id de la orden:");
@@ -40,7 +40,7 @@ public class Main {
             System.out.println("Nombre del producto comprado:");
             nombreProducto = scan.nextLine();
 
-            System.out.println("Nombre del restaurante donde realizo el pedido:");
+            System.out.println("Nombre del restaurante donde realizó el pedido:");
             nombreRestaurante = scan.nextLine();
 
             System.out.println("Precio del producto:");
@@ -52,21 +52,21 @@ public class Main {
             System.out.println("Nombre del Cliente:");
             nombreCliente = scan.nextLine();
 
-            System.out.println("Telefono del Cliente:");
+            System.out.println("Teléfono del Cliente:");
             telefonoCliente = scan.nextLine();
 
-            System.out.println("Metodo de pago:");
+            System.out.println("Método de pago (efectivo, tarjeta, sinpe):");
             metodoPago = scan.nextLine();
 
             if(tipoEnvio.equals("E")){
 
-                System.out.println("Direccion de envio express:");
+                System.out.println("Dirección de envío express:");
                 direccionEnvio = scan.nextLine();
 
-                System.out.println("Costo de envio a esa direccion:");
+                System.out.println("Costo de envío a esa dirección:");
                 costoEnvio = scan.nextLine();
 
-                System.out.println("Tiempo de envio a esa direccion:");
+                System.out.println("Tiempo de envío a esa dirección:");
                 tiempoEnvio = scan.nextLine();
 
                 producto = new Express(Integer.parseInt(id), nombreProducto, nombreRestaurante, Double.parseDouble(precio),
@@ -97,6 +97,9 @@ public class Main {
 
             if (print.equals("S")) {
 
+                for ( String item : repo.obtenerLista()) {
+                    System.out.println(item);
+                }
 
             }else{
                 System.out.println("Gracias por utilizar el sistema...");

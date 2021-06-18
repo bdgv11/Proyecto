@@ -2,14 +2,14 @@ package com.ucreativa.delivery.repositories;
 import com.ucreativa.delivery.entities.Express;
 import com.ucreativa.delivery.entities.PickUp;
 import com.ucreativa.delivery.entities.Producto;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+
+import java.io.*;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class FileRepository implements Repository{
 
-    private final String FILE_PATH = "db.txt";
+    private final String FILE_PATH = "bd.txt";
 
     @Override
     public void guardarProducto(Producto producto, String tipo) {
@@ -73,6 +73,13 @@ public class FileRepository implements Repository{
 
     @Override
     public List<String> obtenerLista() {
+
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH));
+            return reader.lines().collect(Collectors.toList());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 }
