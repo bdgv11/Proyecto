@@ -1,8 +1,5 @@
 package com.ucreativa;
 
-import com.ucreativa.delivery.entities.Express;
-import com.ucreativa.delivery.entities.PickUp;
-import com.ucreativa.delivery.entities.Producto;
 import com.ucreativa.delivery.repositories.FileRepository;
 import com.ucreativa.delivery.repositories.Repository;
 import com.ucreativa.delivery.services.OrdenesService;
@@ -13,7 +10,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Producto producto;
         OrdenesService service = new OrdenesService(new FileRepository());
         Repository repo = new FileRepository();
         Scanner scan = new Scanner(System.in);
@@ -21,10 +17,9 @@ public class Main {
         String id, nombreProducto, nombreRestaurante, precio, tipoEnvio,
                 nombreCliente, telefonoCliente, metodoPago,
                 // aca vienen los campos de la clase express
-                direccionEnvio, costoEnvio, tiempoEnvio,
+                direccionEnvio =null, costoEnvio=null, tiempoEnvio=null,
                 // aca vienen los campos de la clase pickup
-                horaEntrega, pedidoOnline, pedidoLlamada, tipo;
-
+                horaEntrega = null, pedidoOnline = null, pedidoLlamada = null;
 
         boolean bandera = true;
 
@@ -69,10 +64,11 @@ public class Main {
                 System.out.println("Tiempo de envío a esa dirección:");
                 tiempoEnvio = scan.nextLine();
 
-                producto = new Express(Integer.parseInt(id), nombreProducto, nombreRestaurante, Double.parseDouble(precio),
-                        tipoEnvio, nombreCliente, telefonoCliente, metodoPago, direccionEnvio, Double.parseDouble(costoEnvio), Integer.parseInt(tiempoEnvio));
+                //producto = new Express(Integer.parseInt(id), nombreProducto, nombreRestaurante, Double.parseDouble(precio),
+                //        tipoEnvio, nombreCliente, telefonoCliente, metodoPago, direccionEnvio, Double.parseDouble(costoEnvio), Integer.parseInt(tiempoEnvio));
 
-                tipo = "E";
+                //service.guardarProducto(id, nombreProducto, nombreRestaurante, precio,
+                //        tipoEnvio, nombreCliente, telefonoCliente, metodoPago, direccionEnvio, costoEnvio,tiempoEnvio, horaEntrega,pedidoOnline, pedidoLlamada);
 
             }else{
 
@@ -85,12 +81,14 @@ public class Main {
                 System.out.println("El pedido fue por llamada? (S/N):");
                 pedidoLlamada = scan.nextLine();
 
-                producto = new PickUp(Integer.parseInt(id), nombreProducto, nombreRestaurante, Double.parseDouble(precio), tipoEnvio, nombreCliente, telefonoCliente, metodoPago, Integer.parseInt(horaEntrega), pedidoLlamada.equals("S"), pedidoOnline.equals("S"));
-
-                tipo = "P";
+                //producto = new PickUp(Integer.parseInt(id), nombreProducto, nombreRestaurante, Double.parseDouble(precio), tipoEnvio,
+                // nombreCliente, telefonoCliente, metodoPago, Integer.parseInt(horaEntrega), pedidoLlamada.equals("S"), pedidoOnline.equals("S"));
             }
 
-            repo.guardarProducto(producto, tipo);
+            service.guardarProducto(id, nombreProducto, nombreRestaurante, precio,
+                    tipoEnvio, nombreCliente, telefonoCliente, metodoPago, direccionEnvio, costoEnvio,tiempoEnvio, horaEntrega,pedidoOnline, pedidoLlamada);
+
+            //repo.guardarProducto(producto, tipo);
 
             System.out.println("Desea imprimir la lista (S/N)");
             String print = scan.nextLine();
