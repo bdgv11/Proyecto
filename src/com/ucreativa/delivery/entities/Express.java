@@ -53,8 +53,5 @@ public class Express extends Producto{
                             + "Direccion de envio: " + getDireccionEnvio() + "\n"
                             + "Costo de envio: " + getCostoEnvio() + "\n"
                             + "Tiempo estimado de envio: " + getTiempoEnvio() + " minutos" + "\n");
-
-                            //AGREGAR EL BOOLEAN DEL METODO DE PAGO.
-                            //+ "Metodo de pago: " + isPagoEfectivo() + " minutos" + "\n");
     }
 }

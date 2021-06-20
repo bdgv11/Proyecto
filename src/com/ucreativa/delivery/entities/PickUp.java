@@ -50,8 +50,5 @@ public class PickUp extends Producto{
                 + "Precio producto: " + getPrecio() + "\n"
                 + "Tipo de envio: " + getTipoEnvio() + "\n");
 
-        // CREAR LA FORMA DE AGREGAR UN PAR DE MINUTOS A LA HORA Y MOSTRAR LA HORA ESTIMADA DE ENTREGA y el boolean de si fue onnline o por llamada.
-        //      + "Minutos estimados para la hora de entrega: " + getDireccionEnvio() + "\n");
-
     }
 }

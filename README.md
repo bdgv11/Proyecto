@@ -5,7 +5,7 @@
 * [Built with](#built-with)
 * [Getting started](#getting-started)
     - [Prerequisites](#prerequisites)
-* [UML](#uml)
+* [UML](#uml-diagram)
 
 
 ## About The Project
@@ -28,6 +28,9 @@ In order to get the project locally to run the project you need to have installe
 * IDE (Eclipse, IntelliJ, etc)
 
 ## UML Diagram
+
+This diagram try to explain a Delivery Software, it has a "Product" class which is abstract and the main class, and we have "Express" and "Pick Up" which extends from Product.
+Express and Pick Up are kind of classes that try to show tha ways that the customer can order a products.
 
 ![Screenshot](uml.png)
 
